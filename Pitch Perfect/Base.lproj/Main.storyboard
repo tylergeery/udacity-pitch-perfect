@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvi-6F-DN0">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvi-6F-DN0" userLabel="slowSoundButton">
                                 <rect key="frame" x="46" y="114" width="100" height="100"/>
                                 <state key="normal" image="slow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,10 +26,54 @@
                                     <action selector="playSlowSound:" destination="71u-rZ-4lC" eventType="touchUpInside" id="HvB-pj-V9i"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6T-ZZ-c5g" userLabel="fastSoundButton">
+                                <rect key="frame" x="454" y="114" width="100" height="100"/>
+                                <state key="normal" image="fast">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playSlowSound:" destination="71u-rZ-4lC" eventType="touchUpInside" id="c0r-7c-eyZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsH-ad-F2G">
+                                <rect key="frame" x="275" y="503" width="50" height="50"/>
+                                <state key="normal" image="stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopSound:" destination="71u-rZ-4lC" eventType="touchUpInside" id="Wh1-ea-ObB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yug-Se-LbO">
+                                <rect key="frame" x="46" y="264" width="100" height="100"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPitchAudio:" destination="71u-rZ-4lC" eventType="touchUpInside" id="uXb-9j-j9d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfs-ci-UgK">
+                                <rect key="frame" x="454" y="264" width="100" height="100"/>
+                                <state key="normal" image="darthVader">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPitchAudio:" destination="71u-rZ-4lC" eventType="touchUpInside" id="5vQ-pt-qiJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="IsH-ad-F2G" secondAttribute="centerX" id="3Gx-f9-mQ2"/>
+                            <constraint firstItem="yug-Se-LbO" firstAttribute="leading" secondItem="oGK-gK-fUT" secondAttribute="leadingMargin" constant="30" id="3NH-Is-vej"/>
                             <constraint firstItem="zvi-6F-DN0" firstAttribute="top" secondItem="Ine-J8-phB" secondAttribute="bottom" constant="50" id="9Mf-tT-PGi"/>
+                            <constraint firstItem="yug-Se-LbO" firstAttribute="top" secondItem="zvi-6F-DN0" secondAttribute="bottom" constant="50" id="GW9-Eq-dv3"/>
+                            <constraint firstItem="JBZ-3z-tOM" firstAttribute="top" secondItem="IsH-ad-F2G" secondAttribute="bottom" constant="50" id="KfN-cO-177"/>
+                            <constraint firstItem="Wfs-ci-UgK" firstAttribute="top" secondItem="P6T-ZZ-c5g" secondAttribute="bottom" constant="50" id="eGk-6y-Y90"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wfs-ci-UgK" secondAttribute="trailing" constant="30" id="ljp-EK-RJY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P6T-ZZ-c5g" secondAttribute="trailing" constant="30" id="oua-gr-O9p"/>
+                            <constraint firstItem="P6T-ZZ-c5g" firstAttribute="top" secondItem="Ine-J8-phB" secondAttribute="bottom" constant="50" id="p1I-BS-BRJ"/>
                             <constraint firstItem="zvi-6F-DN0" firstAttribute="leading" secondItem="oGK-gK-fUT" secondAttribute="leadingMargin" constant="30" id="rBf-hl-shH"/>
                         </constraints>
                     </view>
@@ -71,7 +115,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="71u-rZ-4lC" kind="show" id="F36-w6-8qq"/>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNA-nV-eeH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,6 +133,7 @@
                         <outlet property="recordingButton" destination="X6J-YD-PGQ" id="liL-7Q-Z7Z"/>
                         <outlet property="recordingInProgress" destination="kTY-ZR-hFd" id="SWe-59-KGz"/>
                         <outlet property="stopButton" destination="jB1-ap-q1e" id="UZ5-Jb-Zfr"/>
+                        <segue destination="71u-rZ-4lC" kind="show" identifier="stopRecording" id="PbS-Bv-xEW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,6 +160,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
+        <image name="darthVader" width="100" height="100"/>
+        <image name="fast" width="100" height="100"/>
         <image name="microphone" width="612" height="792"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
